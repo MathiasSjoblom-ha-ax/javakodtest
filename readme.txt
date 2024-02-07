@@ -1,0 +1,1 @@
+To start run: ./mvnw spring-boot:run
