@@ -1,10 +1,107 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-    <a>ADD CUSTOMER</a>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <style>
+body {
+    font-family: Verdana;
+    margin: 0;
+    padding: 0;
+}
+
+.navigationBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #6B7A8F;
+    color: #fff;
+    padding: 25px;
+}
+
+.navigationBar h2 {
+    margin: 0;
+}
+
+.navigationContent {
+    display: flex;
+    gap: 10px;
+}
+
+.navText {
+    color: #fff;
+    text-decoration: none;
+}
+
+.navText:hover {
+    color: #ddd;
+}
+
+.customerForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.inputLabel {
+    font-weight: bold;
+}
+
+.customerInput {
+    width: 200px;
+    padding: 5px;
+    margin-top: -20px;
+}
+
+.customerInput[type='number']::-webkit-inner-spin-button,
+.customerInput[type='number']::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+    /*Removes input spinner*/
+}
+
+.submitButton {
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.topText {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+        </style>
+    </head>
+    <body>
+        <div class="navigationBar">
+            <h2 href="/">Money Bin Inc.</h2>
+            <div class="navigationContent">
+                <a class="navText" href="/">Home</a>
+                <a class="navText" href="/Pricing">Pricing</a>
+                <a class="navText" href="/Contact">Contact</a>
+                <a class="navText" href="/Career">Career</a>
+            </div>
+        </div>
+        <h3 class="topText">Enter prospects loan information</h3>
+        <form action="/" th:action="@{/addCustomer}" th:object="${customer}" method="post" class="customerForm">
+            <label class="inputLabel" for="name">Name:</label><br>
+            <input class="customerInput" type="text" id="name" th:field="*{name}" pattern="[A-Za-z\s]*"><br>
+            <label class="inputLabel" for="totalLoan">Total Loan:</label><br>
+            <input class="customerInput" type="number" id="totalLoan" th:field="*{totalLoan}" min="0" ><br>
+            <label class="inputLabel" for="interest">Interest:</label><br>
+            <input class="customerInput" type="double" id="interest" th:field="*{interest}" min="0" step="0.01"><br>
+            <label class="inputLabel" for="years">Years:</label><br>
+            <input class="customerInput" type="number" id="years" th:field="*{years}" min="0" step="1">
+            <button class="submitButton" href="/" type="submit">
+                <svg class="addSVG" fill="#6B7A8F" width="50" height="50" viewBox="0 0 1000 1000">
+                    <path d="M856 40H142q-42 0-72 30t-30 72v714q0 42 30 72t72 30h714q42 0 72-30t30-72V142q0-42-30-72t-72-30zM754 550H550v204H448V550H244V448h204V244h102v204h204v102z"/>
+                </svg>
+            </button>         
+        </form>
+    </body>
 </html>

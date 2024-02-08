@@ -17,6 +17,9 @@ public class customer {
         this.years = years;
     }
 
+    public customer() {
+    }
+
     public String getName() {
         return name;
     }
@@ -57,7 +60,7 @@ public class customer {
         double principal = totalLoan;
         double annualInterest = interest;
         double monthlyInterest = (annualInterest / 12) / 100;
-        int numberOfPayments = years * 12;
+        double numberOfPayments = years * 12;
 
         double result = 1.00;
         //Manual pow loop

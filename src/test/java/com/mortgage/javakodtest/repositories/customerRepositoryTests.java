@@ -7,6 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import com.mortgage.javakodtest.entities.customer;
 
 public class customerRepositoryTests {
+
     customerRepository repository;
     ArrayList<customer> customerList;
     ArrayList<String> attributeList;

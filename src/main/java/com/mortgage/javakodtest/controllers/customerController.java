@@ -37,6 +37,8 @@ public class customerController {
     public String addCustomer(@ModelAttribute("customer") customer customer, BindingResult result) throws addCustomerException {
         if(!result.hasErrors()) {
             try {
+                System.out.println(customer.getInterest());
+                System.out.println(customer.getTotalLoan());
                 customerRepository.addCustomer(customer);
                 System.out.println("Successfully inserted new customer");
             } catch (Exception e) {
@@ -51,7 +53,8 @@ public class customerController {
     //Mapping the /addCustomer URL for get requests
     //returns the addCustomers to be rendered
     @GetMapping("/addCustomer")
-    public String redirectAdd() {
+    public String redirectAdd(Model model) {
+        model.addAttribute("customer", new customer());
         return "addCustomers";
     }
 }

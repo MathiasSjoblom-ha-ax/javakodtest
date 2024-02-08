@@ -19,6 +19,7 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 public class customerControllerTests {
+
     // Creating a mock object of customerRepository for unit testing
     @Mock
     customerRepository customerRepository;
@@ -74,7 +75,7 @@ public class customerControllerTests {
     @Test
     void testRedirectAddNew() {
         //Calling the redirectAdd method of customerController and storing the returned view name
-        String view = customerController.redirectAdd();
+        String view = customerController.redirectAdd(model);
         //Asserting that the returned view name is addCustomers
         assertEquals("addCustomers", view);
     }
