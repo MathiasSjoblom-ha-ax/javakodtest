@@ -37,8 +37,6 @@ public class customerController {
     public String addCustomer(@ModelAttribute("customer") customer customer, BindingResult result) throws addCustomerException {
         if(!result.hasErrors()) {
             try {
-                System.out.println(customer.getInterest());
-                System.out.println(customer.getTotalLoan());
                 customerRepository.addCustomer(customer);
                 System.out.println("Successfully inserted new customer");
             } catch (Exception e) {
