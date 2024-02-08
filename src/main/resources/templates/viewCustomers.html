@@ -5,6 +5,10 @@
     <title>Title</title>
 </head>
 <body>
-
+    <div class="prospectsContainer">
+        <ul th:each="customer, iterStat : ${customers}">
+            <li th:text="'Prospect ' + ${iterStat.count} + ': ' + ${customer.name} + ' wants to borrow ' + ${customer.totalLoan} + '€ for a period of ' + ${customer.years} + ' years and pay ' + ${customer.monthlyPayment} + '€ each month'"></li>
+        </ul>
+    </div>
 </body>
 </html>
